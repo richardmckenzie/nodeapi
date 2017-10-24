@@ -1,0 +1,27 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "cors": "^2.8.4",
+    "express": "4.15.5",
+    "express-validator": "4.2.1",
+    "mongoose": "4.11.13"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardmckenzie/myapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardmckenzie/myapp/issues"
+  },
+  "homepage": "https://github.com/richardmckenzie/myapp#readme"
+}

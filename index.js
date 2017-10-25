@@ -9,19 +9,9 @@ const url = process.env.MONGOLAB_URI;
 var express = require('express')
         , app = express();
 
-        //CORS middleware
-      var allowCrossDomain = function(req, res, next) {
-          res.header('Access-Control-Allow-Origin', '*');
-          res.header('Access-Control-Allow-Methods', '*');
-          res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');;
-
-          next();
-
-      }
 
       //...
       app.use(require("body-parser").json());
-          app.use(allowCrossDomain);
 
 
 //====ROOT DIRECTORY===//
@@ -43,6 +33,10 @@ app.post('/api/signatures', function(req, res) {
     guestSignature: req.body.SignatureOfGuest,
     message: req.body.MessageOfGuest,
   }).then(signature => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
+   res.setHeader('Access-Control-Allow-Credentials', true); // If needed
     res.json(signature)
    });
 

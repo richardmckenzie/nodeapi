@@ -26,17 +26,19 @@ app.get('/api/signatures', function(req, res) {
   })
 //==========================//
 //====POST NEW SIGNATURE===//
-app.post('/api/signatures', bodyParser, function(req, res) {
-  Signature.create({
-    guestSignature: req.body.SignatureOfGuest,
-    message: req.body.MessageOfGuest,
-  }).then(signature => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
-    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
-    res.send('cors problem fixed:)');
-  });
+app.post('/api/signatures', function(req, res) {
+  //Signature.create({
+  //  guestSignature: req.body.SignatureOfGuest,
+  //  message: req.body.MessageOfGuest,
+  //}).then(signature => {
+
+  //});
+
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
+  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+  res.send('cors problem fixed:)');
 });
 //==========================//
 

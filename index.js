@@ -29,10 +29,10 @@ app.get('/api/signatures', function(req, res) {
 app.post('/api/signatures', function(req, res) {
 
 
-//  Signature.create({
-//    guestSignature: req.body.SignatureOfGuest,
-//    /message: req.body.MessageOfGuest,
-//  }).then(signature => {
+  Signature.create({
+    guestSignature: req.body.SignatureOfGuest,
+    message: req.body.MessageOfGuest,
+ }).then(signature => {
 //res.header('Access-Control-Allow-Origin', '*');
 //res.header('Access-Control-Allow-Methods', 'GET,PUT, POST,DELETE');
 //res.json(signature)
@@ -43,6 +43,8 @@ res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); /
 res.setHeader('Access-Control-Allow-Credentials', true); // If needed
 
 res.send('cors problem fixed:)' + req.body.SignatureOfGuest);
+ });
+
 });
 //==========================//
 

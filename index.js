@@ -39,7 +39,7 @@ res.setHeader('Access-Control-Allow-Credentials', true); // If needed
  }).then(signature => {
 
  });
- res.send('cors problem fixed:)' + req.body.SignatureOfGuest);
+ res.send('cors problem fixed:)' + signature);
 
 });
 //==========================//

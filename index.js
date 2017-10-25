@@ -9,11 +9,8 @@ const Signature = require('./models/signature.js')
 const url = process.env.MONGOLAB_URI;
 var express = require('express')
         , cors = require('cors')
-        , bodyParser = require('body-parser');
         , app = express();
       app.use(cors()); // use CORS for all requests and all routes
-      app.use(bodyParser.json());
-
 
 //====ROOT DIRECTORY===//
 app.get('/', function(req, res) {

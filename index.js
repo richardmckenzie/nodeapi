@@ -1,7 +1,6 @@
 
 //====LIST DEPENDENCIES===//
 const parseurl = require('parseurl');
-const bodyParser = require('body-parser').json();
 const path = require('path');
 const expressValidator = require('express-validator');
 const mongoose = require('mongoose');
@@ -11,6 +10,9 @@ var express = require('express')
         , cors = require('cors')
         , app = express();
       app.use(cors()); // use CORS for all requests and all routes
+      app.use(express.favicon());
+      app.use(express.bodyParser());
+      app.use(app.router);
 
 //====ROOT DIRECTORY===//
 app.get('/', function(req, res) {

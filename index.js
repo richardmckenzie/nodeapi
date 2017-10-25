@@ -9,8 +9,10 @@ const Signature = require('./models/signature.js')
 const url = process.env.MONGOLAB_URI;
 var express = require('express')
         , cors = require('cors')
+        , bodyParser = require('body-parser');
         , app = express();
       app.use(cors()); // use CORS for all requests and all routes
+      app.use(bodyParser.json());
 
 
 //====ROOT DIRECTORY===//
@@ -27,18 +29,18 @@ app.get('/api/signatures', function(req, res) {
 //==========================//
 //====POST NEW SIGNATURE===//
 app.post('/api/signatures', function(req, res) {
-  //Signature.create({
-  //  guestSignature: req.body.SignatureOfGuest,
-  //  message: req.body.MessageOfGuest,
-  //}).then(signature => {
+  Signature.create({
+    guestSignature: req.body.SignatureOfGuest,
+    message: req.body.MessageOfGuest,
+  }).then(signature => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+    res.send('cors problem fixed:)');
+  });
 
-  //});
 
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
-  res.setHeader('Access-Control-Allow-Credentials', true); // If needed
-  res.send('cors problem fixed:)');
 });
 //==========================//
 

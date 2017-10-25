@@ -19,13 +19,9 @@ var express = require('express')
       }
 
       //...
-      app.configure(function() {
-          app.use(express.bodyParser());
+      app.use(require("body-parser").json());
           app.use(allowCrossDomain);
-          app.use(app.router);
-      });
 
-  app.use(require("body-parser").json());
 
 //====ROOT DIRECTORY===//
 app.get('/', function(req, res) {

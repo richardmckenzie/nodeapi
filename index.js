@@ -6,12 +6,17 @@ const expressValidator = require('express-validator');
 const mongoose = require('mongoose');
 const Signature = require('./models/signature.js')
 const url = process.env.MONGOLAB_URI;
+const bodyParser = require('body-parser');
 var express = require('express')
         , cors = require('cors')
         , app = express();
-      app.use(cors()); // use CORS for all requests and all routes
+      app.use(cors({
+        origin:["*"],
+        methods:["POST","GET","PUT","DELETE"],
+        allowHeaders:["Content-Type","Authorization"]
+      })); // use CORS for all requests and all routes
       app.use(express.favicon());
-      app.use(express.bodyParser());
+      app.use(bodyParser.json());
       app.use(app.router);
 
 //====ROOT DIRECTORY===//
@@ -27,7 +32,7 @@ app.get('/api/signatures', function(req, res) {
   })
 //==========================//
 //====POST NEW SIGNATURE===//
-app.post('/api/signatures', function(req, res) {
+app.post('/api/signatures', bodyParser, function(req, res) {
   Signature.create({
     guestSignature: req.body.SignatureOfGuest,
     message: req.body.MessageOfGuest,

@@ -33,13 +33,13 @@ app.get('/api/signatures', function(req, res) {
 //==========================//
 //====POST NEW SIGNATURE===//
 app.post('/api/signatures', function(req, res) {
-  
+
   Signature.create({
     guestSignature: req.body.SignatureOfGuest,
     message: req.body.MessageOfGuest,
   }).then(signature => {
-    res.send('cors problem fixed:)');
-  });
+    res.json(signature)
+   });
 
 
 });

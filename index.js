@@ -11,6 +11,7 @@ var express = require('express')
         , app = express();
       app.use(cors()); // use CORS for all requests and all routes
 
+      app.use(require("body-parser").json());
 
 //====ROOT DIRECTORY===//
 app.get('/', function(req, res) {
@@ -26,6 +27,8 @@ app.get('/api/signatures', function(req, res) {
 //==========================//
 //====POST NEW SIGNATURE===//
 app.post('/api/signatures', function(req, res) {
+
+
 //  Signature.create({
 //    guestSignature: req.body.SignatureOfGuest,
 //    /message: req.body.MessageOfGuest,
@@ -39,7 +42,7 @@ res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, D
 res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
 res.setHeader('Access-Control-Allow-Credentials', true); // If needed
 
-res.send('cors problem fixed:)');
+res.send('cors problem fixed:)' + req.body.SignatureOfGuest);
 });
 //==========================//
 

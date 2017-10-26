@@ -39,7 +39,6 @@ app.post('/api/signatures', function(req, res) {
    res.send('cors problem fixed:)' + signature);
  });
 
- res.send('dunno');
 });
 //==========================//
 

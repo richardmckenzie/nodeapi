@@ -1,58 +1,28 @@
-//====LIST DEPENDENCIES===//
-const parseurl = require('parseurl');
-const bodyParser = require('body-parser').json();
-const path = require('path');
-const expressValidator = require('express-validator');
-const mongoose = require('mongoose');
-const Signature = require('./models/signature.js')
-const url = process.env.MONGOLAB_URI;
-var express = require('express')
-        , cors = require('cors')
-        , app = express();
-      app.use(cors()); // use CORS for all requests and all routes
+const express = require("express");
+const mongoose = require("mongoose");
+const keys = require("./config/keys");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 
-      app.use(require("body-parser").json());
+require("./models/User");
+require("./services/passport");
 
-//====ROOT DIRECTORY===//
-app.get('/', function(req, res) {
-  res.json('hi you did it');
-});
-//==========================//
-//====GET ALL SIGNATURES===//
-app.get('/api/signatures', function(req, res) {
-  Signature.find({}).then(eachOne => {
-    res.json(eachOne);
-    })
+mongoose.connect(keys.mongoURI);
+
+const app = express();
+
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
   })
-//==========================//
-//====POST NEW SIGNATURE===//
-app.post('/api/signatures', function(req, res) {
-res.setHeader('Access-Control-Allow-Origin', '*');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
-res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+);
 
+app.use(passport.initialize());
+app.use(passport.session());
 
-  Signature.create({
-    guestSignature: req.body.SignatureOfGuest,
-    message: req.body.MessageOfGuest,
- }).then(signature => {
+require("./routes/authRoutes")(app);
 
- });
- res.send('cors problem fixed:)' + signature);
+const PORT = process.env.PORT || 5000;
 
-});
-//==========================//
-
-//====MONGOOSE CONNECT===//
-mongoose.connect(url, function (err, db) {
- if (err) {
-   console.log('Unable to connect to the mongoDB server. Error:', err);
- } else {
-   console.log('Connection established to', url);
- }
-});
-//==========================//
-
-app.listen(process.env.PORT || 3000);
-console.log('starting applicaiton.  Good job!');
+app.listen(PORT);

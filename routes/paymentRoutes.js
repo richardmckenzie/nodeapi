@@ -8,6 +8,7 @@ module.exports = app => {
     req.headers["cookie"] = "fred";
     req.headers["accept-language"] = "en-US,en";
     req.headers["accept"] = "application/json";
+    req.headers["content-type"] = "application/json";
 
     console.log(req.headers);
 

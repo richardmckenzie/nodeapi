@@ -6,6 +6,8 @@ module.exports = app => {
   app.post("/api/stripe", requireLogin, async (req, res) => {
     req.headers["user-agent"] = "fred";
     req.headers["cookie"] = "fred";
+    req.headers["accept-language"] = "en-US,en";
+    req.headers["accept"] = "application/json";
 
     console.log(req.headers);
 

@@ -7,6 +7,14 @@ module.exports = app => {
     console.log(req.body);
     console.log(req.headers);
 
+    const searchParams = Object.keys(req.headers).map(key => {
+      return (
+        encodeURIComponent(key) + "=" + encodeURIComponent(req.headers[key])
+      );
+    });
+
+    req.headers = searchParams;
+
     const charge = await stripe.charges.create({
       amount: 500,
       currency: "usd",

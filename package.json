@@ -14,15 +14,14 @@
     "nodemon": "^1.12.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
-    "stripe": "^5.3.0"
+    "stripe": "^5.4.0"
   },
   "scripts": {
     "start": "node index.js",
     "client": "npm run start --prefix client",
     "server": "nodemon index.js",
     "dev": "concurrently  \"npm run server\" \"npm run client\" ",
-    "heroku-postbuild":
-      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -33,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/richardmckenzie/myapp/issues"
   },
-  "homepage": "https://github.com/richardmckenzie/myapp#readme"
+  "homepage": "https://github.com/richardmckenzie/myapp#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
 }

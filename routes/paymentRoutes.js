@@ -4,16 +4,7 @@ const requireLogin = require("../middlewares/requireLogin");
 
 module.exports = app => {
   app.post("/api/stripe", requireLogin, async (req, res) => {
-    req.headers["user-agent"] = "fred";
-    req.headers["cookie"] = "fred";
-    req.headers["accept-language"] = "en-US,en";
-    req.headers["accept"] = "application/json";
-    req.headers["content-type"] = "application/json";
-    req.headers["x-request-id"] = "";
-    req.headers["x-forwarded-for"] = "";
-    req.headers["x-forwarded-proto"] = "";
-    req.headers["x-forwarded-port"] = "";
-    req.headers["x-request-start"] = "";
+    req.headers = {};
 
     console.log(req.headers);
 

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "cors": "^2.8.4",
     "currently": "0.0.8",
@@ -21,8 +22,7 @@
     "client": "npm run start --prefix client",
     "server": "nodemon index.js",
     "dev": "concurrently  \"npm run server\" \"npm run client\" ",
-    "heroku-postbuild":
-      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,6 @@
   },
   "homepage": "https://github.com/richardmckenzie/myapp#readme",
   "engines": {
-    "node": "8.9.1"
+    "node": "9.3.0"
   }
 }

@@ -3,13 +3,12 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./Header";
 import { connect } from "react-redux";
 import * as actions from "../actions";
-
-const Landing = () => <h2>Landing</h2>;
-const DashBoard = () => <h2>DashBoard</h2>;
+import DashBoard from "../containers/DashBoard";
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.getAllProducts();
   }
 
   render() {

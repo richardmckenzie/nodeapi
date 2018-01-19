@@ -51,7 +51,7 @@ class Header extends Component {
             data-activates="mobile-demo"
             className="button-collapse right"
           >
-            <i className="material-icons">menu</i>
+            <i className="material-icons black-text">menu</i>
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
@@ -69,7 +69,7 @@ class Header extends Component {
           <ul className="side-nav" id="mobile-demo">
             <li>
               <a id="contactMenu" className="black-text" href="/contact">
-                Contact
+                contact
               </a>
             </li>
             <li>

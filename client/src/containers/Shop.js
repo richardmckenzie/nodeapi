@@ -3,6 +3,6 @@ import ProductsContainer from "./ProductsContainer";
 import CartContainer from "./CartContainer";
 import ImageGallery from "../components/ImageGallery";
 
-const DashBoard = () => <div />;
+const Shop = () => <div />;
 
-export default DashBoard;
+export default Shop;

@@ -1,4 +1,5 @@
 export const FETCH_USER = "FETCH_USER";
+export const FETCH_IMAGES = "FETCH_IMAGES";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const CHECKOUT_REQUEST = "CHECKOUT_REQUEST";
 export const CHECKOUT_SUCCESS = "CHECKOUT_SUCCESS";

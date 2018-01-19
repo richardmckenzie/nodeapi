@@ -3,6 +3,7 @@ import shop from "../api/shop";
 
 import {
   FETCH_USER,
+  FETCH_IMAGES,
   RECEIVE_PRODUCTS,
   ADD_TO_CART,
   CHECKOUT_REQUEST,
@@ -12,6 +13,11 @@ import {
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/current_user");
   dispatch({ type: FETCH_USER, payload: res.data });
+};
+
+export const fetchImages = () => async dispatch => {
+  const res = await axios.get("/api/images");
+  dispatch({ type: FETCH_IMAGES, payload: res.data });
 };
 
 export const handleToken = token => async dispatch => {

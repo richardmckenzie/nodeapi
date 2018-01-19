@@ -2,11 +2,13 @@ import { combineReducers } from "redux";
 import auth from "./auth";
 import cart, * as fromCart from "./cart";
 import products, * as fromProducts from "./products";
+import images from "./images";
 
 export default combineReducers({
   auth,
   cart,
-  products
+  products,
+  images
 });
 
 const getAddedIds = state => fromCart.getAddedIds(state.cart);

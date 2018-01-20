@@ -3,84 +3,48 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Payments from "./Payments";
 import Cart from "./Cart";
+import "../styles/css/Header.css";
+import { Navbar, NavItem, Badge } from "react-materialize";
 
 class Header extends Component {
+  componentDidMount() {}
+
   renderContent() {
     switch (this.props.auth) {
       case null:
         return;
       case false:
         return (
-          <li>
-            <a className="black-text" href="/auth/google">
-              Login with google
-            </a>
-          </li>
+          <NavItem className="black-text" href="/auth/google">
+            Login with google
+          </NavItem>
         );
       default:
         return [
-          <li key="2">
-            <a className="black-text" href="/account">
-              My Account
-            </a>
-          </li>,
-
-          <li key="3">
-            <a className="black-text" href="/cart">
-              <Cart products={[]} />
-            </a>
-          </li>,
-          <li key="3">
-            <a className="black-text" href="/api/logout">
-              Logout
-            </a>
-          </li>
+          <NavItem className="white-background" href="/account">
+            My Account
+          </NavItem>,
+          <NavItem className="black-text" href="/cart">
+            <Cart products={[]} />
+          </NavItem>,
+          <NavItem className="black-text" href="/api/logout">
+            Logout
+          </NavItem>
         ];
     }
   }
 
   render() {
     return (
-      <nav className="nav-extended white black-text">
-        <div className="nav-wrapper">
-          <a href="#" className="brand-logo center black-text headingfont">
-            Flos Flower&apos;s{" "}
-          </a>
-          <a
-            href="#"
-            data-activates="mobile-demo"
-            className="button-collapse right"
-          >
-            <i className="material-icons black-text">menu</i>
-          </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a id="contactMenu" className="black-text" href="/contact">
-                Contact
-              </a>
-            </li>
-            <li>
-              <a id="shopMenu" className="black-text" href="/shop">
-                Shop
-              </a>
-            </li>
-            {this.renderContent()}
-          </ul>
-          <ul className="side-nav" id="mobile-demo">
-            <li>
-              <a id="contactMenu" className="black-text" href="/contact">
-                contact
-              </a>
-            </li>
-            <li>
-              <a id="shopMenu" className="black-text" href="/shop">
-                Shop
-              </a>
-            </li>
-            {this.renderContent()}
-          </ul>
-        </div>
-      </nav>
+      <Navbar className="brand-logo white" brand="Flos Flower&apos;s" right>
+        <NavItem className="black-text" href="/contact">
+          Contact
+        </NavItem>
+        <NavItem className="black-text" href="/Shop">
+          Shop
+        </NavItem>
+        {this.renderContent()}
+      </Navbar>
     );
   }
 }

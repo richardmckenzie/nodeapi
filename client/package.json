@@ -12,11 +12,12 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "materialize-css": "^0.100.2",
+    "jquery": "^3.3.0",
     "node-sass-chokidar": "0.0.3",
     "prop-types": "^15.5.10",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-materialize": "^1.1.2",
     "react-measure": "^2.0.2",
     "react-photo-gallery": "^6.0.22",
     "react-redux": "^5.0.6",
@@ -31,8 +32,7 @@
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

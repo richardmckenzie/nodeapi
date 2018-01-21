@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "./Product";
-import "../styles/css/Cart.css";
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const hasProducts = products.length > 0;
@@ -19,12 +18,7 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
 
   return (
     <div>
-      <img
-        src="/images/cart.png"
-        className="cartimage"
-        height="24"
-        width="24"
-      />
+      <i className="material-icons">shopping_cart</i>
     </div>
   );
 };

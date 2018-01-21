@@ -16,7 +16,7 @@ class Header extends Component {
       case false:
         return (
           <NavItem className="black-text" href="/auth/google">
-            Login with google
+            <img src="/images/google.png" className="googleimage" height="32" />
           </NavItem>
         );
       default:
@@ -36,7 +36,7 @@ class Header extends Component {
 
   render() {
     return (
-      <Navbar className="brand-logo white" brand="Flos Flower&apos;s" right>
+      <Navbar className="brand-logo white" brand="Flo&apos;s Flowers" right>
         <NavItem className="black-text" href="/contact">
           Contact
         </NavItem>

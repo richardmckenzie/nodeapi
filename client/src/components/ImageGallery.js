@@ -27,9 +27,10 @@ class ImageGallery extends Component {
       return {
         src: item.images.standard_resolution.url,
         srcSet: [
-          `${item.images.standard_resolution.url} ${
-            item.images.standard_resolution.width
-          }w`
+          `${item.images.low_resolution.url} ${
+            item.images.low_resolution.width
+          }w`,
+          `${item.images.thumbnail.url} ${item.images.thumbnail.width}w`
         ],
         width: item.images.standard_resolution.width,
         height: item.images.standard_resolution.height

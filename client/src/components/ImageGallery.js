@@ -10,14 +10,6 @@ class ImageGallery extends Component {
     this.state = { width: -1 };
   }
 
-  createImageObject(src, width, height) {
-    var image = {};
-
-    image.src = src;
-    image.width = width;
-    image.height = height;
-  }
-
   buildImageArray(columns) {
     if (this.props.images === null) {
       return [];
@@ -53,15 +45,15 @@ class ImageGallery extends Component {
           if (width < 1) {
             return <div ref={measureRef} />;
           }
-          let columns = 2;
+          let columns = 1;
           if (width >= 480) {
-            columns = 4;
+            columns = 2;
           }
           if (width >= 1024) {
-            columns = 8;
+            columns = 4;
           }
           if (width >= 1824) {
-            columns = 12;
+            columns = 6;
           }
           return (
             <div ref={measureRef}>

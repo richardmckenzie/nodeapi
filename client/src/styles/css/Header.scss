@@ -1,7 +1,3 @@
-i.icon-black {
-  color: black;
-}
-
 nav .brand-logo {
   color: #7e7e91;
   font-family: "Playfair Display", serif;
@@ -20,6 +16,15 @@ nav ul a {
   height: 64px;
 }
 
-.material-icons {
+.google-signin {
+  margin-top: 15px;
+}
+
+nav .brand-logo i.material-icons {
+  float: left;
+  margin-right: 0px;
+}
+
+i.material-icons {
   color: #7e7e91;
 }

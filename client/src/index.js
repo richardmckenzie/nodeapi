@@ -6,6 +6,7 @@ import App from "./components/App";
 import reducers from "./reducers";
 import reduxThunk from "redux-thunk";
 import { createLogger } from "redux-logger";
+import "font-awesome/css/font-awesome.min.css";
 
 const middleware = [reduxThunk];
 if (process.env.NODE_ENV !== "production") {

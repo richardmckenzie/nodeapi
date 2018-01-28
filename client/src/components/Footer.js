@@ -1,39 +1,49 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/css/Footer.css";
-import { Footer as Footing } from "react-materialize";
+import { Footer as MaterializeFooter } from "react-materialize";
+import Privacy from "./Privacy";
+import { Modal } from "react-materialize";
 
 export default class Footer extends Component {
   render() {
     return (
-      <Footing
-        copyrights="&copy; 2018 Flos Flower&apos;s All rights reserved"
-        moreLinks={
-          <a className="grey-text text-lighten-4 right" href="#!">
-            More Links
-          </a>
-        }
-        links={
-          <ul>
-            <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 1
-              </a>
-            </li>
-            <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 2
-              </a>
-            </li>
-          </ul>
-        }
-        className="example"
-      >
-        <h5 className="white-text">Footer Content</h5>
-        <p className="grey-text text-lighten-4">
-          You can use rows and columns here to organize your footer content.
-        </p>
-      </Footing>
+      <div className="footer">
+        <MaterializeFooter
+          copyrights="&copy; 2018 Flo's Flowers. All rights reserved"
+          links={
+            <ul>
+              <li>
+                <div>
+                  <a
+                    className="white-text"
+                    href="https://www.instagram.com/flosflowersnz"
+                  >
+                    <i className="fa fa-instagram fa-2x" aria-hidden="true" />
+                  </a>
+                  <a
+                    className="white-text"
+                    href="https://www.instagram.com/flosflowersnz"
+                  >
+                    <i
+                      className="fa fa-facebook-official fa-2x"
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
+              </li>
+              <li>
+                <a className="white-text text-lighten-3" href="#!">
+                  Privacy Policy
+                </a>
+              </li>
+            </ul>
+          }
+          className="blue-grey lighten-2"
+        >
+          <h5 className="white-text">Kapiti Coast, New Zealand</h5>
+        </MaterializeFooter>
+      </div>
     );
   }
 }

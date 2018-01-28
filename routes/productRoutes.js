@@ -1,6 +1,9 @@
 const keys = require("../config/keys");
 const mongoose = require("mongoose");
 const Flowers = mongoose.model("flowers");
+
+//https://picasaweb.google.com/data/feed/api/user/101177779892286593085/albumid/1000000486593085
+
 const ig = require("instagram-node").instagram();
 
 ig.use({
@@ -13,8 +16,9 @@ module.exports = app => {
   app.get("/api/flowers", async (req, res) => {
     Flowers.find({}, function(err, flowers) {
       var flowerArray = [];
-
       flowers.forEach(function(flower) {
+        console.log("%%%%%%%%%%%%%%" + flower);
+
         flowerArray.push(flower);
       });
 

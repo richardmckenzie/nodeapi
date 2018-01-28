@@ -62,6 +62,7 @@ class Header extends Component {
           </NavItem>
         ];
     }
+  }
 
   render() {
     return (

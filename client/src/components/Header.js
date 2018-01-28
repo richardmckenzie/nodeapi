@@ -9,7 +9,7 @@ import { Modal, Navbar, NavItem, Badge } from "react-materialize";
 class Header extends Component {
   componentDidMount() {}
 
-  renderContent() {
+  renderGoodontent() {
     switch (this.props.auth) {
       case null:
         return;
@@ -40,6 +40,28 @@ class Header extends Component {
         ];
     }
   }
+
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return (
+          <NavItem key="3" className="black-text" href="/auth/google">
+            <img
+              src="/images/google.png"
+              className="google-signin"
+              height="32"
+            />
+          </NavItem>
+        );
+      default:
+        return [
+          <NavItem key="5" className="black-text" href="/api/logout">
+            Logout
+          </NavItem>
+        ];
+    }
 
   render() {
     return (
